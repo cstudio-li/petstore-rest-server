@@ -74,7 +74,7 @@
 						<contextPath>/</contextPath>
 					</webApp>
 					<webAppSourceDirectory>target/${project.artifactId}-${project.version}</webAppSourceDirectory>
-					<supportedPackagings>jar</supportedPackagings>
+					<supportedPackagings>war</supportedPackagings>
 					<stopPort>8079</stopPort>
 					<stopKey>stopit</stopKey>
 					<stopWait>10</stopWait>
@@ -82,6 +82,13 @@
 						<port>8080</port>
 						<idleTimeout>60000</idleTimeout>
 					</httpConnector>
+					<scanIntervalSeconds>-1</scanIntervalSeconds>
+					<reload>manual</reload>
+					<useTestScope>true</useTestScope>
+					<webAppConfig>
+						<resourceBase>src/test/webjar-debug/META-INF/resources</resourceBase>
+						<resourceBase>${project.basedir}/src/main/resources/META-INF/resources</resourceBase>
+					</webAppConfig>
 				</configuration>
 				<dependencies>
 					<dependency>

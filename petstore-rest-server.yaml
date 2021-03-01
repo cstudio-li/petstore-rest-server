@@ -28,11 +28,11 @@ metadata:
 spec:
   selector:
     app: petstore
-#  type: NodePort
+  type: NodePort
   ports:
     - protocol: TCP
       targetPort: 8080
       port: 8080
       nodePort: 30008
-  type: LoadBalancer
-  loadBalancerIP: __IP__
+#  type: LoadBalancer
+#  loadBalancerIP: __IP__
