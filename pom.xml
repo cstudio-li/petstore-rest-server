@@ -34,15 +34,15 @@
 	<build>
 		<sourceDirectory>src/main/java</sourceDirectory>
 		<plugins>
-			<plugin>
-				<groupId>com.google.cloud.tools</groupId>
-				<artifactId>appengine-maven-plugin</artifactId>
-				<version>2.2.0</version>
-				<configuration>
-					<projectId>GCLOUD_CONFIG</projectId>
-					<version>GCLOUD_CONFIG</version>
-				</configuration>
-			</plugin>
+<!--			<plugin>-->
+<!--				<groupId>com.google.cloud.tools</groupId>-->
+<!--				<artifactId>appengine-maven-plugin</artifactId>-->
+<!--				<version>2.2.0</version>-->
+<!--				<configuration>-->
+<!--					<projectId>GCLOUD_CONFIG</projectId>-->
+<!--					<version>GCLOUD_CONFIG</version>-->
+<!--				</configuration>-->
+<!--			</plugin>-->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
@@ -79,16 +79,15 @@
 					<stopKey>stopit</stopKey>
 					<stopWait>10</stopWait>
 					<httpConnector>
-						<port>8090</port>
+						<port>8080</port>
 						<idleTimeout>60000</idleTimeout>
 					</httpConnector>
 					<scanIntervalSeconds>-1</scanIntervalSeconds>
 					<reload>manual</reload>
 					<useTestScope>true</useTestScope>
-					<webAppConfig>
-						<resourceBase>src/test/webjar-debug/META-INF/resources</resourceBase>
-						<resourceBase>${project.basedir}/src/main/resources/META-INF/resources</resourceBase>
-					</webAppConfig>
+<!--					<webAppConfig>-->
+<!--						<resourceBase>${project.basedir}/src/main/resources/META-INF/resources</resourceBase>-->
+<!--					</webAppConfig>-->
 				</configuration>
 				<dependencies>
 					<dependency>
