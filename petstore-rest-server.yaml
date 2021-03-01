@@ -30,9 +30,10 @@ spec:
     app: petstore
   type: NodePort
   ports:
-    - protocol: TCP
+    - name: http
+      protocol: TCP
       targetPort: 8080
       port: 8080
-      nodePort: 30008
+#      nodePort: 30008
 #  type: LoadBalancer
 #  loadBalancerIP: __IP__
