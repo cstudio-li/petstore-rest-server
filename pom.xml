@@ -79,7 +79,7 @@
 					<stopKey>stopit</stopKey>
 					<stopWait>10</stopWait>
 					<httpConnector>
-						<port>8080</port>
+						<port>8090</port>
 						<idleTimeout>60000</idleTimeout>
 					</httpConnector>
 					<scanIntervalSeconds>-1</scanIntervalSeconds>
