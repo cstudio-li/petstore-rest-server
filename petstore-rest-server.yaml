@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: app-petstore
-          image: cstudioli/petstore-repo:1.0
+          image: __IMAGE__
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
@@ -28,9 +28,11 @@ metadata:
 spec:
   selector:
     app: petstore
-  type: NodePort
+#  type: NodePort
   ports:
     - protocol: TCP
       targetPort: 8080
       port: 8080
       nodePort: 30008
+  type: LoadBalancer
+  loadBalancerIP: __IP__
