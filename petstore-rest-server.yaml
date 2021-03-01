@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: app-petstore
-          image: petstore/rest-server:1
+          image: cstudioli/petstore-repo:1.0
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
