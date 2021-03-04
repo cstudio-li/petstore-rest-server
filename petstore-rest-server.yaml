@@ -34,8 +34,22 @@ spec:
       protocol: TCP
       targetPort: 8080
       port: 8080
+    - name: https
+      protocol: TCP
+      port: 443
+      targetPort: 443
   externalIPs:
-  - 192.168.1.15
+    - 0.0.0.0,192.168.1.14
 #      nodePort: 30008
 #  type: LoadBalancer
 #  loadBalancerIP: __IP__
+---
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: petstore-endpoint
+subsets:
+  - addresses:
+      - ip: 0.0.0.0,192.168.1.14
+    ports:
+      - port: 8080
