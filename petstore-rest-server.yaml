@@ -21,25 +21,52 @@ spec:
           ports:
             - containerPort: 8080
 ---
-apiVersion: v1
 kind: Service
+apiVersion: v1
 metadata:
-  name: petstore-rest-server
+  name: petstore-rest-service
 spec:
   selector:
     app: petstore
-  type: NodePort
   ports:
     - name: http
       protocol: TCP
       targetPort: 8080
       port: 8080
-    - name: https
-      protocol: TCP
-      port: 443
-      targetPort: 443
-  externalIPs:
-    - 192.168.1.15
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: petstore.cstudio.dev
+spec:
+  rules:
+    - host: petstore.cstudio.dev
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: petstore-rest-service
+              servicePort: 8080
+#---
+#apiVersion: v1
+#kind: Service
+#metadata:
+#  name: petstore-rest-server
+#spec:
+#  selector:
+#    app: petstore
+#  type: NodePort
+#  ports:
+#    - name: http
+#      protocol: TCP
+#      targetPort: 8080
+#      port: 8080
+#    - name: https
+#      protocol: TCP
+#      port: 443
+#      targetPort: 443
+#  externalIPs:
+#    - 192.168.1.15
 #      nodePort: 30008
 #  type: LoadBalancer
 #  loadBalancerIP: __IP__
