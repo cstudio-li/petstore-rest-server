@@ -33,20 +33,24 @@ spec:
       protocol: TCP
       targetPort: 8080
       port: 8080
+    - name: https
+      protocol: TCP
+      port: 443
+      targetPort: 443
 ---
-apiVersion: networking.k8s.io/v1beta1
-kind: Ingress
-metadata:
-  name: petstore.cstudio.dev
-spec:
-  rules:
-    - host: petstore.cstudio.dev
-      http:
-        paths:
-          - path: /
-            backend:
-              serviceName: petstore-rest-service
-              servicePort: 8080
+#apiVersion: networking.k8s.io/v1beta1
+#kind: Ingress
+#metadata:
+#  name: petstore.cstudio.dev
+#spec:
+#  rules:
+#    - host: petstore.cstudio.dev
+#      http:
+#        paths:
+#          - path: /
+#            backend:
+#              serviceName: petstore-rest-service
+#              servicePort: 8080
 #---
 #apiVersion: v1
 #kind: Service
